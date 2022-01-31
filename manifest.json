@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Values Cart",
+  "short_name": "Values Cart",
+  "version": "0.0.1",
+  "icons": {
+    "16": "assets/icons/16.png",
+    "48": "assets/icons/48.png",
+    "128": "assets/icons/128.png"
+  },
+  "description": "Values Cart Extension for shoppers",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "identity"
+  ],
+  "action": {
+    "default_popup": "index.html?#/popup",
+    "default_title": "Values Cart"
+  },
+  "options_page": "index.html?#/options",
+  "content_scripts": [
+    {
+      "js": ["contentPage.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "serviceWorker.js"
+  },
+  "content_security_policy": { "extension_pages" : "script-src 'self'; object-src 'self'" }
+}
